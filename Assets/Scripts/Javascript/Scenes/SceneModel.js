@@ -2,7 +2,7 @@ function Scene()
 {
 	this.name = "Model";
 	this.started = false;
-	this.GameObjects = [];
+	this.gameObjects = [];
 
 	this.Awake = function()
 	{
@@ -24,8 +24,8 @@ function Scene()
 
 	this.Update = function(){
 		if (!Application.GamePaused) {
-			for (var i = 0; i < this.GameObjects.length; i++) {
-				this.GameObjects[i].Start();
+			for (var i = 0; i < this.gameObjects.length; i++) {
+				this.gameObjects[i].Start();
 			}
 		}
 	};

@@ -1,6 +1,6 @@
 var Input = 
 {
-	KeysDown: [],
+	keysDown: [],
 	mousePosition: new Vector(),
 	mouseClick: false,
 
@@ -11,11 +11,11 @@ var Input =
 			e.stopPropagation();	
 		}
 
-		Input.KeysDown[e.keycode] = true;
+		Input.keysDown[e.keycode] = true;
 	},
 	KeyUp: function(e)
 	{
-		delete Input.KeysDown[e.keycode];
+		delete Input.keysDown[e.keycode];
 	},
 	MouseDown: function(e){
 		Input.mouseClick = true;
