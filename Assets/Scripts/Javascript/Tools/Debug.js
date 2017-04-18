@@ -34,13 +34,15 @@ var Debug =
 	{
 		ctx.font = '15px Arial';
 		ctx.fillStyle = 'black';
-		ctx.fillText(Application.loadedScene.name, canvas.width - 100, 20);
+		ctx.fillText(Application.loadedScene.name, canvas.width - 100, 50);
 	},
 
 	ShowFPS: function()
 	{
 		ctx.fillStyle = 'rgba(122, 122, 122, 0.4)';
-		ctx.RoundedBox(4, 4, 120, 70, 70);
-		ctx.RoundedBox(canvas.width - 130, 4, 125, 20, 20);
+		ctx.RoundedBox(canvas.width - 130, 4, 80, 20, 20);
+		ctx.font = '15px Arial';
+		ctx.fillStyle = 'green';
+		ctx.fillText(Time.FPS, canvas.width - 100, 20);
 	}
 };
