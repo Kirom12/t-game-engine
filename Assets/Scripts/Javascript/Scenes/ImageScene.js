@@ -1,6 +1,6 @@
-function Loader()
+function ImageScene()
 {
-	this.name = "Loader";
+	this.name = "Image";
 	this.started = false;
 	this.gameObjects = [];
 
@@ -13,18 +13,14 @@ function Loader()
 
 	this.Start = function()
 	{
-		if (!this.started)
-		{
-			Print('System: Scene ' + this.name + ' started');
+		if (!this.started) {
+			Print('System: Scene ' + this.name + ' started')
 			this.started = true;
 
-			//Create scenes here
+			//Create game objetcs
 
-			Scenes['Image'] = new ImageScene();
-
-			//Change loaded scenes
-
-			Application.loadedScene = Scenes['Image'];
+			//this.gameObjects.push(new Square());
+			this.gameObjects.push(new ImageObject());
 		}
 
 		this.Update();

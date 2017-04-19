@@ -44,7 +44,9 @@ function Square()
 		}
 
 		ctx.fillStyle = 'black';
-		ctx.rect(this.position.x, this.position.y,50,50);
+		ctx.beginPath();
+		ctx.arc(this.position.x, this.position.y, 25,0,2*Math.PI);
+		ctx.closePath();
 		ctx.stroke();
 	};
 

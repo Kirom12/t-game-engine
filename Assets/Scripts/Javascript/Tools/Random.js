@@ -69,15 +69,13 @@ Math.Random.InDisk = function(radius) //Cercle surface
 	return coord;
 };
 
-Math.Random.InArea = function(width, height)
+Math.Random.InArea = function(box)
 {
-	let coord =
-	{
-		x : Math.Random.RangeInt(0, width),
-		y : Math.Random.RangeInt(0, height)
-	}
+	var p = new Vector();
+		p.x = Math.Random.RangeInt(box.x, box.x + box.w, true);
+		p.y = Math.Random.RangeInt(box.y, box.y + box.h, true);
 
-	return coord;
+	return p;
 };
 
 Math.Random.ColorRGB = function()
@@ -121,4 +119,17 @@ Math.Random.AngleRadian = function()
 Math.Random.AngleDegree = function()
 {
 	return Math.Random.AngleRadian() * (180 / Math.PI);
+};
+
+Math.Random.PondInt = function(min, max)
+{
+	return Math.Random.PondFloat(min, max) | 0;
+};
+
+Math.Random.PondFloat = function(min, max)
+{
+	let a = Math.Random.RangeFloat(min, max, true);
+	let b = Math.Random.RangeFloat(min, max, true);
+
+	return (a*b) * 0.5;
 };
