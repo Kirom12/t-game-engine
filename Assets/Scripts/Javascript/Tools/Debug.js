@@ -42,7 +42,15 @@ var Debug =
 		ctx.fillStyle = 'rgba(122, 122, 122, 0.4)';
 		ctx.RoundedBox(canvas.width - 130, 4, 80, 20, 20);
 		ctx.font = '15px Arial';
-		ctx.fillStyle = 'green';
+		ctx.fillStyle = 'orange';
+
+		if (Time.FPS > 40)
+		{
+			ctx.fillStyle = 'green';
+		} else if (Time.FPS < 20)
+		{
+			ctx.fillStyle = 'red';
+		}
 		ctx.fillText(Time.FPS, canvas.width - 100, 20);
 	}
 };

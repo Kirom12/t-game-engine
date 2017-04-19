@@ -1,6 +1,6 @@
 function Print(_text)
 {
-	console.log('%c' + _text, "background:#222; color:#bada55");
+	console.log('%c' + _text, "background:#B00B55; color:#BADA55");
 }
 
 function ThrowErr(_text) {

@@ -14,12 +14,15 @@ function GameObject()
 		if (!this.started) {
 			this.started = true;
 
-			Print('System: Scene ' + this.name + ' started');
+			Print('System: GameObject ' + this.name + ' started');
 		}
 
 		this.Update();
 	};
 
 	this.Update = function(){};
+
 	this.GUI = function(){};
+
+	this.Awake();
 }

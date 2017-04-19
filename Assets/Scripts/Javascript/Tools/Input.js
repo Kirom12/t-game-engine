@@ -11,11 +11,11 @@ var Input =
 			e.stopPropagation();	
 		}
 
-		Input.keysDown[e.keycode] = true;
+		Input.keysDown[e.keyCode] = true;
 	},
 	KeyUp: function(e)
 	{
-		delete Input.keysDown[e.keycode];
+		delete Input.keysDown[e.keyCode];
 	},
 	MouseDown: function(e){
 		Input.mouseClick = true;
