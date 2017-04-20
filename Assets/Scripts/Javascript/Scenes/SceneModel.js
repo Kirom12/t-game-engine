@@ -1,6 +1,6 @@
 function Scene()
 {
-	this.name = "Model";
+	this.name = "Scene";
 	this.started = false;
 	this.gameObjects = [];
 

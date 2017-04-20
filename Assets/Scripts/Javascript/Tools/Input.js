@@ -8,7 +8,7 @@ var Input =
 	{
 		if (Application.Debug) {;
 			e.preventDefault();
-			e.stopPropagation();	
+			e.stopPropagation();
 		}
 
 		Input.keysDown[e.keyCode] = true;

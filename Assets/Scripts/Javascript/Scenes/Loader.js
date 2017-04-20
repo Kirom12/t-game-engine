@@ -21,10 +21,12 @@ function Loader()
 			//Create scenes here
 
 			Scenes['Image'] = new ImageScene();
+			Scenes['Text'] = new TextScene();
 
 			//Change loaded scenes
 
-			Application.loadedScene = Scenes['Image'];
+			Application.loadedScene = Scenes['Text'];
+
 		}
 
 		this.Update();
