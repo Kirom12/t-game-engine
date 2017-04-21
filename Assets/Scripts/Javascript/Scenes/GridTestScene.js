@@ -27,10 +27,13 @@ function GridTestScene()
 			this.MapImages.Tileset = 
 			{
 				img: this.img,
+				tileWidth: 32,
+				tileHeight: 32,
 				Tiles: 
 				[
-					{name: "grass", sx: 0, sy: 0, sWidth: 32, sHeight: 32},
-					{name: "tree", sx: 0, sy: 32, sWidth: 32, sHeight: 32},
+					{name: "grass", sx: 0, sy: 0},
+					{name: "tree", sx: 0, sy: 1},
+					{name: "rock", sx: 2, sy: 14},
 				]
 			}
 
