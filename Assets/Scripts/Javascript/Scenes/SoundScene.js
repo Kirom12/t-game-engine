@@ -1,8 +1,9 @@
-function Loader()
+function SoundScene()
 {
-	this.name = "Loader";
+	this.name = "Sound";
 	this.started = false;
 	this.gameObjects = [];
+	this.Sounds = {};
 
 	this.Awake = function()
 	{
@@ -13,22 +14,13 @@ function Loader()
 
 	this.Start = function()
 	{
-		if (!this.started)
-		{
-			Print('System: Scene ' + this.name + ' started');
+		if (!this.started) {
+			Print('System: Scene ' + this.name + ' started')
 			this.started = true;
 
-			//Create scenes here
-
-			Scenes['Image'] = new ImageScene();
-			Scenes['Text'] = new TextScene();
-			Scenes['Sound'] = new SoundScene();
-			Scenes['GridTest'] = new GridTestScene();
-
-			//Change loaded scenes
-
-			Application.loadedScene = Scenes['GridTest'];
-
+			this.Sounds = {
+				Test: new Sound("sounds/piano/a1.mp3")
+			}
 		}
 
 		this.Update();
@@ -41,6 +33,8 @@ function Loader()
 				this.gameObjects[i].Start();
 			}
 		}
+
+		this.Sounds.Test.Play();
 	};
 
 	this.GUI = function(){

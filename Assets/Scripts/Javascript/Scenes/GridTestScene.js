@@ -1,8 +1,12 @@
-function Loader()
+function GridTestScene()
 {
-	this.name = "Loader";
+	this.name = "GridTest";
 	this.started = false;
 	this.gameObjects = [];
+
+	this.MapImages = {};
+
+	this.Grid;
 
 	this.Awake = function()
 	{
@@ -13,22 +17,24 @@ function Loader()
 
 	this.Start = function()
 	{
-		if (!this.started)
-		{
-			Print('System: Scene ' + this.name + ' started');
+		if (!this.started) {
 			this.started = true;
+			Print('System: Scene ' + this.name + ' started');
 
-			//Create scenes here
+			this.img = new Image();
+			this.img.src = "img/tileset.png";
 
-			Scenes['Image'] = new ImageScene();
-			Scenes['Text'] = new TextScene();
-			Scenes['Sound'] = new SoundScene();
-			Scenes['GridTest'] = new GridTestScene();
+			this.MapImages.Tileset = 
+			{
+				img: this.img,
+				Tiles: 
+				[
+					{name: "grass", sx: 0, sy: 0, sWidth: 32, sHeight: 32},
+					{name: "tree", sx: 0, sy: 32, sWidth: 32, sHeight: 32},
+				]
+			}
 
-			//Change loaded scenes
-
-			Application.loadedScene = Scenes['GridTest'];
-
+			this.Grid = new Grid(50, 50, this.MapImages);
 		}
 
 		this.Update();
@@ -36,6 +42,9 @@ function Loader()
 	};
 
 	this.Update = function(){
+		this.Grid.DisplayGrid();
+
+
 		if (!Application.GamePaused) {
 			for (var i = 0; i < this.gameObjects.length; i++) {
 				this.gameObjects[i].Start();

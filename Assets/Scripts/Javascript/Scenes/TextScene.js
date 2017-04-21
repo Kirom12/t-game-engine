@@ -4,7 +4,7 @@ function TextScene()
 	this.started = false;
 	this.gameObjects = [];
 
-	this.text = " Intuition is fucking important. Learn from fucking criticism. If you’re not being fucking honest with yourself how could you ever hope to communicate something meaningful to someone else? Someday is not a fucking day of the week. Paul Rand once said, “The public is more familiar with bad fucking design than good design. Intuition is fucking important. Learn from fucking criticism. If you’re not being fucking honest with yourself how could you ever hope to communicate something meaningful to someone else? Someday is not a fucking day of the week. Paul Rand once said, “The public is more familiar with bad fucking design than good design.";
+	this.text = " Intuition is fucking <color='red'> important </color>. Learn from fucking criticism. If you’re not being fucking honest with yourself how could you ever hope to communicate something meaningful to someone else? Someday is not a fucking day of the week. Paul Rand once said, “The public is more familiar with bad fucking design than good design. Intuition is fucking important. Learn from fucking criticism. If you’re not being fucking honest with yourself how could you ever hope to communicate something meaningful to someone else? Someday is not a fucking day of the week. Paul Rand once said, “The public is more familiar with bad fucking design than good design.";
 
 	this.Awake = function()
 	{

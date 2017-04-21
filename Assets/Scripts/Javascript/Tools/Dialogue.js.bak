@@ -16,7 +16,7 @@ function Dialogue(x, y, Width, Height, sourceText)
 
 
 	this.time = 0;
-	this.waitingTime = 100;
+	this.waitingTime = 10;
 
 	this.font =
 	{
@@ -25,23 +25,22 @@ function Dialogue(x, y, Width, Height, sourceText)
 		color: '#BADA55'
 	}
 
-	this.lines = [[]];
+	this.lines = [""];
 
 	this.maxLines = (this.textBox.Height-this.textBox.Margin*2)/this.font.size;
 
 	this.currentLetter = 0;
-	this.currentWord = 0;
 	this.currentLine = 0;
 
 	this.display =
 	{
 		x: 0,
 		y: 0,
-		currentLine: 0,
-		lastWordwidth: 0
+		currentLine: 0
 	}
 
 	this.pause = false;
+
 
 	this.Start = function(){this.Update();};
 
@@ -52,13 +51,10 @@ function Dialogue(x, y, Width, Height, sourceText)
 		{
 			this.time = Time.time;
 
-
 			if (this.currentLetter > ((this.textBox.Width/(this.font.size/2))-3)*(this.currentLine+1) && this.sourceText[this.currentLetter] == " ")
 			{
 				this.currentLine++;
-				this.lines[this.currentLine] = [];
-
-				this.currentWord = 0;
+				this.lines[this.currentLine] = "";
 
 				if (this.currentLine >= this.display.currentLine+this.maxLines)
 				{
@@ -66,18 +62,10 @@ function Dialogue(x, y, Width, Height, sourceText)
 				}
 			}
 
-			if (this.sourceText[this.currentLetter] == " ")
-			{
-				this.currentWord++;
-				this.lines[this.currentLine][this.currentWord] = "";
-			}
-
-			this.lines[this.currentLine][this.currentWord] += this.sourceText[this.currentLetter];
+			this.lines[this.currentLine] += this.sourceText[this.currentLetter];
 
 			this.innerText += this.sourceText[this.currentLetter];
 			this.currentLetter++;
-
-			//console.log(this.lines);
 		
 		}
 
@@ -89,10 +77,10 @@ function Dialogue(x, y, Width, Height, sourceText)
 		if (Input.keysDown[40])
 		{
 			if (this.display.currentLine < this.lines.length-this.maxLines) {this.display.currentLine++;}
-		} 
+		}
 
 		this.pause = false;
- 
+
 		if (Input.keysDown[32])
 		{
 			this.pause = true;
@@ -113,13 +101,11 @@ function Dialogue(x, y, Width, Height, sourceText)
 		{
 			if (this.lines[i])
 			{
-				for (let j = 1; j < this.lines[i].length; j++) {
-					let x = this.textBox.position.x + this.textBox.Margin + this.display.lastWordwidth;
-					let y = this.textBox.position.y + this.textBox.Margin*2 + (i*this.font.size) - (this.display.currentLine*this.font.size);
+				let x = this.textBox.position.x + this.textBox.Margin;
+				let y = this.textBox.position.y + this.textBox.Margin*2 + (i*this.font.size) - (this.display.currentLine*this.font.size);
 
-					ctx.fillText(this.lines[i][j], x, y);
-					ctx.fillStyle = this.font.color;
-				}
+				ctx.fillText(this.lines[i], x, y);
+				ctx.fillStyle = this.font.color;
 
 				//console.log(ctx.measureText(this.lines[i]));
 			}
